@@ -2352,8 +2352,6 @@ function IncidentsPage({
 
   useEffect(() => {
     if (!selectedIncident) {
-      setEvents([])
-      setIncidentLogs([])
       return
     }
 
@@ -2495,7 +2493,11 @@ function IncidentsPage({
                 applicationName={getApplicationName(
                   incident.application_id,
                 )}
-                onClick={() => setSelectedIncident(incident)}
+                onClick={() => {
+                  setEvents([])
+                  setIncidentLogs([])
+                  setSelectedIncident(incident)
+                }}
               />
             ))}
           </div>
